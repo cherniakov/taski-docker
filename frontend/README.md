@@ -1,5 +1,15 @@
 # Getting Started with Create React App
 
+## Запускаем фронтенд
+
+ 1. Установить на сервер пакетный менеджер npm
+ 2. Проверка установки npm -v
+ 3. Перейдите в директорию cd taski/frontend/
+ 4. Установить зависимости npm i
+ 5. Запустите приложение командой npm run start
+ 6. Откройте приложение в браузере по ссылке: http://localhost:3000/
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -68,3 +78,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
