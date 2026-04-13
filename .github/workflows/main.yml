@@ -165,3 +165,21 @@ jobs:
   #       to: ${{ secrets.TELEGRAM_TO }}
   #       token: ${{ secrets.TELEGRAM_TOKEN }}
   #       message: Образы успешно загружены!
+
+  # 4. Подключаемся к серверу по SSH и деплоим (Пример из deepseek нужно проверять)
+      # - name: Deploy to server
+      #   uses: appleboy/ssh-action@v0.1.5
+      #   with:
+      #     host: ${{ secrets.SERVER_IP }}
+      #     username: ${{ secrets.SERVER_USER }}
+      #     key: ${{ secrets.SERVER_SSH_KEY }}
+      #     script: |
+      #       docker pull ваш_username/taski_backend:latest
+      #       docker stop taski_backend_container || true
+      #       docker rm taski_backend_container || true
+      #       docker run -d \
+      #         --name taski_backend_container \
+      #         -p 8000:8000 \
+      #         -v sqlite_data:/data \
+      #         --restart unless-stopped \
+      #         ваш_username/taski_backend:latest
