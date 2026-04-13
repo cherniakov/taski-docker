@@ -9,6 +9,46 @@
  5. Запустите приложение командой npm run start
  6. Откройте приложение в браузере по ссылке: http://localhost:3000/
 
+## Собираем Docker-образ
+1. Перехододим в папку
+    cd taski/frontend
+
+2. Создаём файл Dockerfile
+    FROM node:18
+    WORKDIR /app
+
+    COPY package.json package.json
+    COPY package-lock.json package-lock.json
+
+    RUN npm install
+
+    COPY . .
+    RUN npm run build
+
+3. В директории frontend/ разместите файл .dockerignore
+    # frontend/.dockerignore
+    node_modules
+    build
+
+4. Cоберите образ:
+    docker build -t taski_frontend .
+
+5. Запустите контейнер:
+    docker run --rm -it -p 8000:8000 --name taski_frontend_test taski_frontend
+
+6. Откройте браузер
+    http://127.0.0.1:8000/
+    
+
+
+
+
+
+
+
+# Эта команда запустит встроенный сервер на Node.js, который будет раздавать
+# содержимое директории /app/build на порте 8000
+CMD ["npx", "-y", "http-server", "-p", "8000", "/app/build"]
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
